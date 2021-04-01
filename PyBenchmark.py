@@ -4,11 +4,6 @@ import sys
 from multiprocessing import Pool
 
 
-
-def wrapper(args):
-    return rand_mult(*args)
-
-
 def rand_mult(A, B, C, i):
     
     for j in range(len(B)):
@@ -28,18 +23,11 @@ if __name__ == "__main__":
     numP = int(sys.argv[1])
     numA = int(sys.argv[2])
 
-#    A = [random.randint(0,100) for i in range(numA)]
-#    B = [random.randint(0,100) for i in range(numA)]
-    A = [i for i in range(numA)]
-    B = [i for i in range(numA)]
+    A = [random.randint(0,100) for i in range(numA)]
+    B = [random.randint(0,100) for i in range(numA)]
     C = [0 for i in range(numA)]
 
 
-
-#    result = [A,B,C]
-#    for i in range(len(A)):
-#        for j in range(len(B)):
-#            result.append((A[i],B[j]))
     
     starttime = time.time()
     pool = Pool(processes = numP)
