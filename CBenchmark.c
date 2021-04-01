@@ -1,38 +1,51 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <omp.h>
 #include "timer.h"
 
-#define n 2048
 
-double A[n][n];
-double B[n][n];
-double C[n][n];
 
-int main() {
+void rand_multiplication(int n) {
 
-    //populate the matrices with random values between 0.0 and 1.0
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
+    double start, end;
+    int A[n], B[n], C[n], i;
+    memset(C, 0, n);
 
-            A[i][j] = (double) rand() / (double) RAND_MAX;
-            B[i][j] = (double) rand() / (double) RAND_MAX;
-            C[i][j] = 0;
-        }
+    for(int i = 0; i < n; i++) {
+
+        A[i] = i;
     }
-    //matrix multiplication
+
+    for(int i = 0; i < n; i++) {
+
+        B[i] = i;
+    }
+
     START_TIMER(MatrixMult);
-    int i, j, k;
-
-#   pragma omp parallel for default(none) shared(A,B,C) private(i,j,k)
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
-            for (k = 0; k < n; k++) {
-                C[i][j] += A[i][k] * B[k][j];
-            }
-        }
+#   pragma omp parallel for collapse(2)
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++)
+            C[i] = A[i] * B[j];
     }
+
     STOP_TIMER(MatrixMult);
-    printf("Elapsed time in seconds: %f \n", GET_TIMER(MatrixMult));
+    printf("Work took %8.4fs seconds\n", GET_TIMER(MatrixMult));
+    
+}
+
+int main(int argc, char *argv[]) {
+
+    int numT, numA;
+
+    if (argc != 2) {
+        fprintf(stderr, "Invalid format: OMP_NUM_THREADS= <Number of Arguments> \n");
+        return EXIT_FAILURE;
+    }
+
+    
+    numA = atoi(argv[1]);
+    rand_multiplication(numA);
+
     return 0;
 }
