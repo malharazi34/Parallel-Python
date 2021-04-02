@@ -8,7 +8,7 @@
 /*
  * Function: rand_mult
  * ---------------------------
- * Populates two arrays with random numbers, the performs cross multiplication between the two arrys
+ * Populates two arrays with random numbers, then performs a cross multiplication in parallel between the two arrys
  *      and stores them in a third array. 
  * 
  *  n: size of the arrays, which will then run through a for loop n*n times
