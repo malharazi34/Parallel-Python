@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/time.h>
 #include "timer.h"
 
 
@@ -16,8 +15,7 @@
  */
 void rand_multiplication(int n) {
 
-    struct timeval start, end;
-    int A[n], B[n], C[n], i;
+    int A[n], B[n], C[n];
     memset(C, 0, n);
 
     //Populate the two arrays with numbers between 0 and 100
@@ -41,13 +39,13 @@ void rand_multiplication(int n) {
 
    STOP_TIMER(RandMult);
 
-    printf("Work took %8.4fs seconds\n", GET_TIMER(MatrixMult));
+    printf("Work took %8.4fs seconds\n", GET_TIMER(RandMult));
     
 }
 
 int main(int argc, char *argv[]) {
 
-    int numT, numA;
+    int numA;
 
     //Error checking to make sure the number of arguments in the command line are correct
     if (argc != 2) {
