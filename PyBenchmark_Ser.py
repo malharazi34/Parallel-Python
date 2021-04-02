@@ -43,7 +43,7 @@ if __name__ == "__main__":
     C = [0 for i in range(numA)]
 
     
-    START_TIMER(RandMult)
+    start = time.time()
     rand_mult(A, B, C, numA)
-    STOP_TIMER(RandMult)
-    print(f"Time taken {GET_TIMER(RandMult)} seconds")
+    end - time.time()
+    print(f"Time taken {end-start} seconds")
