@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
 
     
-    START_TIMER(RandMult)
+    start = time.time()
     # Create a pool of processes based on the input given
     pool = Pool(processes = numP)
     
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     #Cleanup the processes
     pool.close()
     pool.join()
-    STOP_TIMER(RandMult)
+    end = time.time()
     
 
-    print(f"Time taken {GET_TIMER(RandMult)} seconds")
+    print(f"Time taken {end-start} seconds")
