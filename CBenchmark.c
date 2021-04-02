@@ -8,8 +8,7 @@
 
 void rand_multiplication(int n) {
 
-    double start, end;
-    int A[n], B[n], C[n], i;
+    int A[n], B[n], C[n];
     memset(C, 0, n);
 
     for(int i = 0; i < n; i++) {
@@ -36,7 +35,7 @@ void rand_multiplication(int n) {
 
 int main(int argc, char *argv[]) {
 
-    int numT, numA;
+    int numA;
 
     if (argc != 2) {
         fprintf(stderr, "Invalid format: OMP_NUM_THREADS= <Number of Arguments> \n");
