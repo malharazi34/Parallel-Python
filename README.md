@@ -5,7 +5,7 @@ Repository for the PythonThreading research project for CS 470 at James Madison 
 
 ## Description
 
-In our project, we attempt to compare the difference in runtime of parallel and serial compuations between C and multiple Python implementations. The programs create two arrays of size n containing random numbers, then performs a cross multiplication between the two, and stores them in an array. Ultimately, the program will iterate n\*n times over the arrays, and prints the run time of the function.
+In our project, we attempt to compare the difference in runtime of parallel and serial computations between C and multiple Python implementations. The programs create two arrays of size n containing random numbers, then performs a cross multiplication between the two, and stores them in an array. Ultimately, the program will iterate n\*n times over the arrays, and prints the run time of the function.
 
 ## Compilation of C source files
 
