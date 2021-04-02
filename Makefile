@@ -4,8 +4,8 @@ CBenchmark: CBenchmark.c timer.h
 	gcc -g -O2 --std=c99 -fopenmp -Wall -o CBenchmark CBenchmark.c
 
 CBenchmarkSerial: CBenchmarkSerial.c timer.h
-	gcc -g -O2 --std=c99 -Wall -o CBenchmarkSerial CBenchmarkSerial.c
+	gcc -g -O2 --std=c99 -Wall -o CBenchmark_Ser CBenchmark_Ser.c
 
 clean:
-	rm -f CBenchmark CBenchmarkSerial
+	rm -f CBenchmark CBenchmark_Ser
 
