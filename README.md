@@ -1,9 +1,9 @@
-#PythonThreading
+# PythonThreading
 
 
 Repository for the PythonThreading research project for CS 470 at James Madison University
 
-##Usage
+## Usage
 
 To begin, start of with running the provided make file
 
