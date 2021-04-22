@@ -16,26 +16,25 @@
 
 void rand_multiplication(int n) {
 
-    int A[n], B[n], C[n];
-    memset(C, 0, n);
+    int C[n];
+    
     
     //Populate the two arrays with numbers between 0 and 100
-    for(int i = 0; i < n; i++) {
-
-        A[i] = (rand() % (100 - 0 + 1)) + 0;
-    }
 
     for(int i = 0; i < n; i++) {
 
-        B[i] = (rand() % (100 - 0 + 1)) + 0;;
+        C[i] = (rand() % (100 - 0 + 1)) + 0;;
     }
 
     //Performs a cross multiplication between the two arrays using OpenMP and records the run time
     START_TIMER(RandMult);
+    
+    for(int x = 0; x < n; x++){
 #   pragma omp parallel for collapse(2)
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++)
-            C[i] = A[i] * B[j];
+        for(int i = 0; i < 100; i++) {
+            for(int j = 0; j < 100; j++)
+                C[x] = C[x] * i * j;
+        }
     }
 
     STOP_TIMER(RandMult);
