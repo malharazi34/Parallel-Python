@@ -4,41 +4,35 @@
 #include <string.h>
 #include "timer.h"
 
-
 /*
  * Function: rand_mult
  * ---------------------------
- * Populates two arrays with random numbers, the performs cross multiplication between the two arrys
+ * Populates two arrays with random numbers, then performs a cross multiplication in parallel between the two arrys
  *      and stores them in a third array. 
  * 
  *  n: size of the arrays, which will then run through a for loop n*n times
  */
+
 void rand_multiplication(int n) {
 
-    int A[n], B[n], C[n];
-    memset(C, 0, n);
-
-    //Populate the two arrays with numbers between 0 and 100
-    for(int i = 0; i < n; i++) {
-
-        A[i] = i;
-    }
+    int C[n];
+    
 
     for(int i = 0; i < n; i++) {
 
-        B[i] = i;
+        C[i] = (rand() % (100 - 0 + 1)) + 0;;
     }
 
-    //Performs a cross multiplication between the two arrays and stores them in array C while recording the runtime
+    //Performs a cross multiplication between the two arrays using OpenMP and records the run time
     START_TIMER(RandMult);
-
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++)
-            C[i] = A[i] * B[j];
+    for(int x = 0; x < n; x++){
+        for(int i = 0; i < 100; i++) {
+            for(int j = 0; j < 100; j++)
+                C[x] = C[x] * i * j;
+        }
     }
 
-   STOP_TIMER(RandMult);
-
+    STOP_TIMER(RandMult);
     printf("Work took %8.4fs seconds\n", GET_TIMER(RandMult));
     
 }
