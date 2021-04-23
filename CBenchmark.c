@@ -38,7 +38,7 @@ void rand_multiplication(int n) {
     }
 
     STOP_TIMER(RandMult);
-    printf("Work took %8.4fs seconds\n", GET_TIMER(RandMult));
+    printf("Time taken: %8.4fs seconds\n", GET_TIMER(RandMult));
     
 }
 
