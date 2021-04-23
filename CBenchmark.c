@@ -28,9 +28,8 @@ void rand_multiplication(int n) {
 
     //Performs a cross multiplication between the two arrays using OpenMP and records the run time
     START_TIMER(RandMult);
-    
+#   pragma omp parallel for   
     for(int x = 0; x < n; x++){
-#   pragma omp parallel for collapse(2)
         for(int i = 0; i < 100; i++) {
             for(int j = 0; j < 100; j++)
                 C[x] = C[x] * i * j;
