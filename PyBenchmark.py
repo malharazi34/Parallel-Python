@@ -26,20 +26,12 @@ if __name__ == "__main__":
     numA = int(sys.argv[2])
 
     C = [random.randint(0,100) for i in range(numA)]
-
-
-#    result = [A,B,C]
-#    for i in range(len(A)):
-#        for j in range(len(B)):
-#            result.append((A[i],B[j]))
     
     starttime = time.time()
     pool = Pool(processes = numP)
     
     
     C = pool.map(rand_mult, C)
-
-#    pool.map(rand_mult, C, args = (D, len(D)/numP))
     
     pool.close()
     pool.join()
