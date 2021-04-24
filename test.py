@@ -3,10 +3,9 @@ import cython_example
  
  
 def main():
-    start = time.time()
-    result = cython_example.main()
-    duration = time.time() - start
-    print(result, duration)
+    
+    result = Cy_Benchmark.main()
+    
  
  
 if __name__ == '__main__':
