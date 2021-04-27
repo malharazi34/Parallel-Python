@@ -40,28 +40,44 @@ OMP_NUM_THREADS=<NUMBER_OF_PROCESSES> ./CBenchmark <Number of Arugments>
 To run the serial Python program:
 
 ```bash
-srun python3 PyBenchmark_Ser.py <Number of Arugments>
+python3 PyBenchmark_Ser.py <Number of Arugments>
 ```
 
 To run the Multiprocess Python program:
 
 ```bash
-srun python3 PyBenchmark.py <Number of Processes> <Number of Arugments>
+python3 PyBenchmark.py <Number of Processes> <Number of Arugments>
 ```
 
 ## Running PyPy3 with the Python files
 
 To run pypy3, we have provided the absoulte path for it to work on the cluster
 
-Serial pypy example: 
+Serial Pypy example: 
 
 ```bash
-srun pypy3.6-v7.3.3-linux64/bin/pypy3 PyBenchmark_Ser.py <Number of Arugments>
+pypy3.6-v7.3.3-linux64/bin/pypy3 PyBenchmark_Ser.py <Number of Arugments>
 ```
 
-Parallel pypy example:
+Multiprocesses Pypy program:
 
 ```bash
-srun pypy3.6-v7.3.3-linux64/bin/pypy3 PyBenchmark.py <Number of Processes> <Number of Arugments>
+pypy3.6-v7.3.3-linux64/bin/pypy3 PyBenchmark.py <Number of Processes> <Number of Arugments>
+```
+
+## Running Cython with the Python files
+
+To run cython with the provided provided, we have to use the absolute path. Note that we use have to use python not python3
+
+Serial Cython example:
+
+```bash
+python Cython-0.28.1/Cy_ser_test.py <Number of Arguments>
+```
+
+Multiprocess Cython example:
+
+```bash
+python Cython-0.28.1/Cy_multi_test.py <Number of Processes> <Number of Arguments>
 ```
 
