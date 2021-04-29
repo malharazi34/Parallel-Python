@@ -32,7 +32,7 @@ To run the serial C executable:
 to run the parallel C executable:
 
 ```bash
-OMP_NUM_THREADS=<NUMBER_OF_PROCESSES> ./CBenchmark <Number of Arugments>
+OMP_NUM_THREADS=<NUMBER_OF_THREADS> ./CBenchmark <Number of Arugments>
 ```
 
 ## Running Python3 with the Python files
@@ -47,6 +47,12 @@ To run the Multiprocess Python program:
 
 ```bash
 python3 PyBenchmark.py <Number of Processes> <Number of Arugments>
+```
+
+To run the Multithread Python program:
+
+```bash
+python3 Py_Thread.py <Number of Threads> <Number of Arugments>
 ```
 
 ## Running PyPy3 with the Python files
@@ -80,4 +86,5 @@ Multiprocess Cython example:
 ```bash
 python Cython-0.28.1/Cy_multi_test.py <Number of Processes> <Number of Arguments>
 ```
+
 
